@@ -8,6 +8,8 @@ import axios from "axios"
 const Home=()=>{
 
     const[input,setInput]=useState({policyid:""})
+    const[error,setError]=useState(false)   
+    const[loading,setLoading]=useState(false)
     const dispatch=useDispatch()
     const accounts=useSelector((state)=>state.rootReducer.accounts)
 
@@ -34,19 +36,21 @@ const Home=()=>{
 
     function postPolicyId(e){ 
         e.preventDefault()
+        setLoading(true);
         console.log(input)
+
+        if(input.policyid===""){
+            setError(true);
+            setLoading(false)
+            return;
+        }
 
         
         dispatch(POSTPOLICYID(input)).then(async(r)=>{
-          //  console.log('hay facebook?',checkAccounts(r.payload.accounts,'facebook')) 
           await console.log('accounts',accounts)
-        
+          setError(false);
+          setLoading(false);
         })
-
-        
-
-
-
     }
 
 
@@ -58,8 +62,11 @@ const Home=()=>{
                     <h2>Check your NFT Identity</h2>
                     <form action="" className="inline">
                         <input value={input.policyid} name='policyid' onChange={(e)=>validate(e)} type="text" placeholder="Enter Policy ID, DID Method or Asset ID" />
-                        <button onClick={(e)=>postPolicyId(e)} type="submit">Check</button>
+                        <button onClick={(e)=>postPolicyId(e)} type="submit">{loading?'Loading...':'Check'}</button>
                     </form>
+                    {
+                        error? <p className='errorMsg'>invalid policy ID</p>: <></>
+                    }
                 </header>
                 <div className="inline found">
                     <h1 className="item-number">06</h1>

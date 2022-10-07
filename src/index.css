@@ -73,6 +73,10 @@ h1.item-number {
   top: 15px;
 }
 
+.errorMsg{
+  color: red;
+  margin-block-start: 4px;
+}
 
 hr {
   margin-top: -14px;
