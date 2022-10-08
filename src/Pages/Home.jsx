@@ -45,14 +45,15 @@ const Home=()=>{
             return;
         }
 
-        
-        dispatch(POSTPOLICYID(input)).then(async(r)=>{
-          await console.log('accounts',accounts)
-          setError(false);
-          setLoading(false);
-        })
+    
+            dispatch(POSTPOLICYID(input)).then(async(r)=>{
+                await console.log('r',r)
+                setError(false);
+                setLoading(false);
+                if(r.error.name){setError(true);}
+            })
+            
     }
-
 
     return(
         <div >
