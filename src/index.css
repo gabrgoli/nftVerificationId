@@ -293,3 +293,13 @@ footer {
   }
 }
 
+.buttonText {
+  margin-right: 5px;
+  font-size: 15px;
+  margin-left: 15px;
+  text-align: center;
+  width: 140px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
