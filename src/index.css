@@ -49,7 +49,7 @@ h1.item-number {
 }
 
 .gridItem {
-  margin-bottom: 6px;
+  margin: 6px;
   width: 260px;
   height: 48px;
   border-radius: 40px;
@@ -58,11 +58,27 @@ h1.item-number {
   font-size: 20px;
   position: relative;
   align-items: center;
-  
+}
 
+.greyGridItem{
+  margin: 6px;
+  width: 260px;
+  height: 48px;
+  border-radius: 40px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  position: relative;
+  align-items: center;
+  background: #333334;
 }
 
 .gridItem img {
+  position: absolute;
+  left: 24px;
+}
+
+.greyGridItem img {
   position: absolute;
   left: 24px;
 }

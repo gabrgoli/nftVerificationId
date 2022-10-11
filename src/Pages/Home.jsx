@@ -4,6 +4,7 @@ import { useState } from 'react'
 import {POSTPOLICYID} from '../actions'
 import { useDispatch,useSelector } from 'react-redux'
 import axios from "axios"
+import { Link } from "react-router-dom";
 
 const Home=()=>{
 
@@ -45,7 +46,6 @@ const Home=()=>{
             return;
         }
 
-    
             dispatch(POSTPOLICYID(input)).then(async(r)=>{
                 await console.log('r',r)
                 setError(false);
@@ -74,9 +74,11 @@ const Home=()=>{
                     <h1>Verifications Found</h1>
                 </div>
                 <div className="btn-grid">
-                    <button className="gridItem">
+
+                <a href={accounts.length!==0&&accounts.includes("twitter")?`https://twitter.com/${(accounts.find(element=>element.username!==undefined).username)}`:null}>
+                    <button className={accounts.length===0||accounts.includes("twitter")?"gridItem":"greyGridItem"}>
                         <img src="images/social-button/twitter.png" width="20" height="20"/>
-                        Twitter 
+                            {accounts.includes("twitter")?accounts.find(element=>element.twitterId!==undefined).username:'Twitter'} 
                         {checkAccounts(accounts,'twitter')?
                         <div className='check'>
                             <img src="/images/check.png" width="20" height="20"/>  
@@ -84,10 +86,13 @@ const Home=()=>{
                         <></>
                         }
                     </button>
-                    
+                </a>
+
+
+                <a href={accounts.length!==0&&accounts.includes("facebook")?`https://facebook.com/${(accounts.find(element=>element.username!==undefined).username)}`:null}>    
                     <button className="gridItem">
                         <img src="images/social-button/facebook.png" width="20" height="20"/>
-                        Facebook
+                            {accounts.includes("facebook")?accounts.find(element=>element.username!==undefined).username:'Facebook'} 
                         {checkAccounts(accounts,'facebook')?
                         <div className='check'>
                             <img src="/images/check.png" width="20" height="20"/>  
@@ -95,10 +100,12 @@ const Home=()=>{
                         <></>
                         }
                     </button>
-                    
-                    <button className="gridItem">
+                </a>
+
+                <a href={accounts.length!==0&&accounts.includes("discord")?`https://discord.com/channel/${(accounts.find(element=>element.username!==undefined).username)}`:null}>    
+                    <button className={accounts.length===0||accounts.includes("discord")?"gridItem":"greyGridItem"}>
                         <img src="images/social-button/discord.png" width="20" height="20"/>
-                        Discord
+                            {accounts.includes("discord")?accounts.find(element=>element.discordId!==undefined).username:'Discord'} 
                         {checkAccounts(accounts,'discord')?
                         <div className='check'>
                             <img src="/images/check.png" width="20" height="20"/>  
@@ -106,11 +113,13 @@ const Home=()=>{
                         <></>
                         }
                     </button>
+                </a>
 
 
-                    <button className="gridItem">
+                <a href={accounts.length!==0&&accounts.includes("github")?`https://github.com/${(accounts.find(element=>element.username!==undefined).username)}`:null}>
+                    <button className={accounts.length===0||accounts.includes("github")?"gridItem":"greyGridItem"}>
                         <img src="images/social-button/github.png" width="20" height="20"/>
-                        Github
+                            {accounts.includes("github")?accounts.find(element=>element.githubId!==undefined).username:'Github'} 
                         {checkAccounts(accounts,'github')?
                         <div className='check'>
                             <img src="/images/check.png" width="20" height="20"/>  
@@ -118,11 +127,12 @@ const Home=()=>{
                         <></>
                         }
                     </button>
+                </a>
 
-
-                    <button className="gridItem">
+                <a href={accounts.length!==0&&accounts.includes("apple")?`https://apple/${(accounts.find(element=>element.username!==undefined).username)}`:null}>
+                    <button className={accounts.length===0||accounts.includes("apple")?"gridItem":"greyGridItem"}>
                         <img src="images/social-button/apple.png" width="20" height="20"/>
-                        Apple
+                            {accounts.includes("apple")?accounts.find(element=>element.username!==undefined).username:'Apple'} 
                         {checkAccounts(accounts,'apple')?
                         <div className='check'>
                             <img src="/images/check.png" width="20" height="20"/>  
@@ -130,11 +140,12 @@ const Home=()=>{
                         <></>
                         }
                     </button>
+                </a>
 
-
-                    <button className="gridItem">
+                <a href={accounts.length!==0&&accounts.includes("linkedin")?`https://linkedin.com/in/${(accounts.find(element=>element.username!==undefined).username)}`:null}>
+                    <button className={accounts.length===0||accounts.includes("linkedin")?"gridItem":"greyGridItem"}>
                         <img src="images/social-button/linkedin.png" width="20" height="20"/>
-                        LinkedIn
+                            {accounts.includes("linkedin")?accounts.find(element=>element.linkedinId!==undefined).username:'Linkedin'} 
                         {checkAccounts(accounts,'linkedin')?
                         <div className='check'>
                             <img src="/images/check.png" width="20" height="20"/>  
@@ -142,10 +153,12 @@ const Home=()=>{
                         <></>
                         }
                     </button>
+                </a>
 
-                    <button className="gridItem">
+                <a href={accounts.length!==0&&accounts.includes("twitch")?`https://twitch.tv/${(accounts.find(element=>element.username!==undefined).username)}`:null}>
+                    <button className={accounts.length===0||accounts.includes("twitch")?"gridItem":"greyGridItem"}>
                         <img src="images/social-button/twitch.png" width="20" height="20"/>
-                        Twitch
+                            {accounts.includes("twitch")?accounts.find(element=>element.twitchId!==undefined).username:'Twitch'} 
                         {checkAccounts(accounts,'twitch')?
                         <div className='check'>
                             <img src="/images/check.png" width="20" height="20"/>  
@@ -153,10 +166,13 @@ const Home=()=>{
                         <></>
                         }
                     </button>
+                </a>
 
-                    <button className="gridItem">
+
+                <a href={accounts.length!==0&&accounts.includes("tiktok")?`https://tiktok/${(accounts.find(element=>element.username!==undefined).username)}`:null}>
+                    <button className={accounts.length===0||accounts.includes("tiktok")?"gridItem":"greyGridItem"}>
                         <img src="images/social-button/tiktok.png" width="20" height="20"/>
-                        TikTok
+                            {accounts.includes("tiktok")?accounts.find(element=>element.tiktokId!==undefined).username:'Tiktok'} 
                         {checkAccounts(accounts,'tiktok')?
                         <div className='check'>
                             <img src="/images/check.png" width="20" height="20"/>  
@@ -164,6 +180,7 @@ const Home=()=>{
                         <></>
                         }
                     </button>
+                </a>  
 
 
                     <div className="showArea">
