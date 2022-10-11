@@ -71,6 +71,8 @@ h1.item-number {
   position: relative;
   align-items: center;
   background: #333334;
+  opacity: 40%;
+  cursor: auto;
 }
 
 .gridItem img {
