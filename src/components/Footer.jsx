@@ -48,7 +48,7 @@ export const Footer = () => {
                 </div>
             </div>
             <div className="c-footer__wrap">
-                <a href="https://iamx.id/imprint/" target="_blank">Imprint</a>
+                <a href="https://iamx.id/imprint/" target="_blank">Imprint </a>
                 <a href="https://iamx.id/privacypolicy/" target="_blank">Privacy Policy</a>
                 <p>Copyright 2022 IAMX AG</p>
             </div>
