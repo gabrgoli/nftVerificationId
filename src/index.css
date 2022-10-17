@@ -84,11 +84,12 @@ header {
   display: flex !important;
   height: 100vh;
   text-align: center;
+  
 }
 
 .headerimg {
   margin-top:95%;
-  width:60%;
+  width:4vw;
 }
 .inline {
   display: inline-flex;
@@ -337,6 +338,7 @@ footer {
   line-height: 64px;
   width: 556px;
   margin: auto;
+
 }
 
 .address {
@@ -440,4 +442,13 @@ footer {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.sideBarText{
+
+  
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+
 }

@@ -1,10 +1,61 @@
 import * as React from 'react'
-//import Loading from '../Components/Loading'
+import Header from '../components/Header'
 import { useState } from 'react'
 import { POSTPOLICYID } from '../actions'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from "axios"
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer"
+import styled from "styled-components";
+import { scrollToElement } from "../../src/utils/layout";
+
+const StyledHeader = styled.header`
+  width: 7%;
+  background: transparent;
+  writing-mode: vertical-rl;
+  display: flex;
+  border-right: 1px solid #000000;
+  position: fixed;
+  z-index: 11;
+  max-height: 100vh!important;
+  overflow: hidden!important;
+  .logo-desktop {
+   margin: 15px;
+  }
+
+
+  .logo-mobile {
+    display: none;
+  }
+
+  nav {
+    height: 100vh;
+    a {
+      transform: scale(-1);
+      display: flex !important;
+    }
+  }
+
+  button {
+    max-width: 187.39px;
+   
+    
+  }
+
+  nav {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 75px;
+    margin: 75px 30px;
+    a {
+      display: none;
+      white-space: nowrap;
+      color: #000000;
+      text-decoration: none;
+    }
+  }
+`;
 
 const Home = () => {
 
@@ -51,6 +102,7 @@ const Home = () => {
             setLoading(false);
             if (r.error.name) { setError(true); }
         })
+
     }
 
 
@@ -58,20 +110,29 @@ const Home = () => {
         <div >
             <header className="header">
                 <meta name="viewport" content="width=device-width, initial-scale=0.5" />
+                <StyledHeader>
                 <nav id="header" className="headernav">
                     <div className="logo-desktop">
-
-                        <img src="images/iamxblue.png" className="headerimg" />
-
-
+                        <img src="images/IAMX_Logo_blue.png" className="headerimg" />
+                        
+                    </div>
+                    <div className='sideBarText'>
+                        <a onClick={() => scrollToElement("view-getStarted")}>Get started</a>
+                    </div>
+                    <div className='sideBarText'>
+                        <a onClick={() => scrollToElement("view-contactus")}>Contact us</a>
                     </div>
                 </nav>
 
+                </StyledHeader>
+
 
             </header>
+        
             <div className="wrapper">
                 <div className="container">
 
+                <section className="section" id="view-getStarted"></section>
                     <div className="headerform">
                         <img src="images/IAMX_Logo_blue.png" alt="IAMX Logo" />
                         <h1>Check your NFT Identity</h1>
@@ -245,7 +306,9 @@ const Home = () => {
                     </div>
                 </div>
 
-                <footer className="c-footer" id="footer">
+                <Footer/>
+
+                {/* <footer className="c-footer" id="footer">
                     <div className="c-container">
                         <div className="c-footer__wrap">
                             <h1 className="footerTitle">Contact us for more information.</h1>
@@ -295,7 +358,7 @@ const Home = () => {
                             <p>Copyright 2022 IAMX AG</p>
                         </div>
                     </div>
-                </footer>
+                </footer> */}
             </div>
         </div>
     )
