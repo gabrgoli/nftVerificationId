@@ -11,16 +11,17 @@ import { scrollToElement } from "../../src/utils/layout";
 
 const StyledHeader = styled.header`
   width: 7%;
-  background: transparent;
+  background: white;
   writing-mode: vertical-rl;
   display: flex;
+  align-items: center;
   border-right: 1px solid #000000;
   position: fixed;
   z-index: 11;
   max-height: 100vh!important;
   overflow: hidden!important;
   .logo-desktop {
-   margin: 15px;
+   margin: 5px;
   }
 
 
@@ -272,6 +273,21 @@ const Home = () => {
                                 }
                             </button>
                         </a>
+
+                        {/* <a href={accounts.length !== 0 && accounts.includes("KYC") ? `https://kyc.com/${(accounts.find(element => element.username !== undefined).username)}` : null}>
+                            <button className={accounts.length === 0 || accounts.includes("KYC") ? "gridItem" : "greyGridItem"}>
+                                <img src="images/social-button/tiktok.png" width="20" height="20" />
+                                <span className='buttonText'>
+                                    {accounts.includes("KYC") ? accounts.find(element => element.tiktokId !== undefined).username : 'KYC'}
+                                </span>
+                                {checkAccounts(accounts, 'KYC') ?
+                                    <div className='check'>
+                                        <img src="/images/check.png" width="20" height="20" />
+                                    </div> :
+                                    <></>
+                                }
+                            </button>
+                        </a> */}
 
 
                         <div className="showArea">

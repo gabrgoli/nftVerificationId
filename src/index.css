@@ -64,7 +64,7 @@ header {
 
 @media screen and (max-width: 800px) {
   header {
-    display: none;
+    /* display: none; */
   }
   .wrapper {
     background: white;
@@ -88,7 +88,7 @@ header {
 }
 
 .headerimg {
-  margin-top:95%;
+  /* margin-top:95%; */
   width:4vw;
 }
 .inline {
